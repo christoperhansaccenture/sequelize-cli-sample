@@ -4,7 +4,8 @@ module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface
       .createTable('Tasks', {
-        title: Sequelize.STRING
+        title: Sequelize.STRING,
+        remarks: Sequelize.STRING
       });
   },
 

@@ -1,6 +1,6 @@
 {
   "development": {
-    "dialect": "sqlite",
+    "dialect": "postgres",
     "storage": "./db.development.sqlite"
   },
   "test": {
@@ -16,5 +16,12 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
+  },
+  "postgres-dev": {
+    "username": "postgres",
+    "password": "password",
+    "database": "postgres",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   }
 }

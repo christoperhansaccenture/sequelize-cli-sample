@@ -94,3 +94,56 @@ Once thats done, your database configuration is ready!
 ## The tests
 
 You can run the tests by executing `npm test`.
+
+## Using sequelize-cli
+
+You could create and perform models, migration, database seeding using sequelize-cli.
+
+Perform the following task:
+``` 
+npm install -g sequelize-cli
+```
+On your project root
+
+### Model and Migration
+
+Create model using sequelize-cli:
+```
+sequelize model:create --name User --attributes username:string
+sequelize model:create --name Task --attributes title:string
+```
+
+Modify migration and model (`models/{model_name}.js`)
+
+Migrate using sequelize-cli
+```
+sequelize db:migrate --env {env_name}
+```
+
+### Seeder
+
+Make directory seeders:
+```
+mkdir seeders
+```
+
+Create seeder using sequelize-cli:
+```
+sequelize seeder:create --name {seeder_name}
+```
+
+Modify seeder to add your database and prefered values (`seeders/{timestamp}_{seeder_name}.js`):
+
+```
+...
+  up: function (queryInterface, Sequelize) {
+    return queryInterface.bulkInsert('Users', [{
+      username: 'testUser',
+      firstname: 'test',
+      lastname: 'User'
+    }], {});
+  },
+  down: function (queryInterface, Sequelize) {
+    return queryInterface.bulkDelete('Users', null, {});
+  }
+```

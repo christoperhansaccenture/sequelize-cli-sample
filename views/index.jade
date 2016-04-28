@@ -14,7 +14,7 @@ block content
   ul
   each user in users
     li
-      = user.username
+      = user.username user.firstname
       | &nbsp;
       | (
       a(href="/users/" + user.id + "/destroy") Destroy
